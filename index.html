@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Student Expense Tracker</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="logo-section">
+            <div class="logo">💰</div>
+            <div>
+                <h1>Student Expense Tracker</h1>
+                <p>Manage your money smartly</p>
+            </div>
+        </div>
+
+        <button class="clear-all-btn" id="clearAllBtn">
+            Clear All
+        </button>
+    </header>
+
+
+    <!-- Main Content -->
+    <main class="container">
+
+        <!-- Welcome Section -->
+        <section class="welcome">
+            <h2>Welcome, Student! 👋</h2>
+            <p>Keep track of your daily expenses and manage your budget.</p>
+        </section>
+
+
+        <!-- Summary Cards -->
+        <section class="summary-grid">
+
+            <div class="summary-card total-card">
+                <div class="card-icon">💰</div>
+                <div>
+                    <p>Total Expense</p>
+                    <h2>৳<span id="totalExpense">0.00</span></h2>
+                </div>
+            </div>
+
+            <div class="summary-card today-card">
+                <div class="card-icon">📅</div>
+                <div>
+                    <p>Today's Expense</p>
+                    <h2>৳<span id="todayExpense">0.00</span></h2>
+                </div>
+            </div>
+
+            <div class="summary-card count-card">
+                <div class="card-icon">🧾</div>
+                <div>
+                    <p>Total Transactions</p>
+                    <h2 id="transactionCount">0</h2>
+                </div>
+            </div>
+
+        </section>
+
+
+        <!-- Add Expense + Categories -->
+        <section class="dashboard-grid">
+
+            <!-- Add Expense -->
+            <div class="box add-expense-box">
+
+                <div class="box-header">
+                    <h2>➕ Add New Expense</h2>
+                    <p>Enter your expense details below.</p>
+                </div>
+
+                <form id="expenseForm">
+
+                    <div class="form-group">
+                        <label for="expenseTitle">Expense Name</label>
+                        <input
+                            type="text"
+                            id="expenseTitle"
+                            placeholder="e.g. Lunch"
+                            required
+                        >
+                    </div>
+
+
+                    <div class="form-row">
+
+                        <div class="form-group">
+                            <label for="amount">Amount (৳)</label>
+
+                            <input
+                                type="number"
+                                id="amount"
+                                placeholder="0.00"
+                                min="0"
+                                step="0.01"
+                                required
+                            >
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="category">Category</label>
+
+                            <select id="category" required>
+                                <option value="">Select Category</option>
+                                <option value="Food">🍔 Food</option>
+                                <option value="Transport">🚌 Transport</option>
+                                <option value="Education">📚 Education</option>
+                                <option value="Shopping">🛍️ Shopping</option>
+                                <option value="Entertainment">🎮 Entertainment</option>
+                                <option value="Bills">💡 Bills</option>
+                                <option value="Other">📦 Other</option>
+                            </select>
+                        </div>
+
+                    </div>
+
+
+                    <div class="form-row">
+
+                        <div class="form-group">
+                            <label for="date">Date</label>
+
+                            <input
+                                type="date"
+                                id="date"
+                                required
+                            >
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="note">Note</label>
+
+                            <input
+                                type="text"
+                                id="note"
+                                placeholder="Optional note"
+                            >
+                        </div>
+
+                    </div>
+
+
+                    <button type="submit" class="add-btn">
+                        Add Expense
+                    </button>
+
+                </form>
+
+            </div>
+
+
+            <!-- Category Summary -->
+            <div class="box category-box">
+
+                <div class="box-header">
+                    <h2>📊 Category Summary</h2>
+                    <p>See where your money goes.</p>
+                </div>
+
+                <div id="categorySummary" class="category-summary">
+
+                    <div class="empty-category">
+                        <span>📊</span>
+                        <p>No expenses yet</p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Expense List -->
+        <section class="box expense-box">
+
+            <div class="expense-header">
+
+                <div class="box-header">
+                    <h2>📋 Recent Expenses</h2>
+                    <p>Your latest transactions.</p>
+                </div>
+
+                <div class="filter-section">
+
+                    <select id="filterCategory">
+                        <option value="All">All Categories</option>
+                        <option value="Food">🍔 Food</option>
+                        <option value="Transport">🚌 Transport</option>
+                        <option value="Education">📚 Education</option>
+                        <option value="Shopping">🛍️ Shopping</option>
+                        <option value="Entertainment">🎮 Entertainment</option>
+                        <option value="Bills">💡 Bills</option>
+                        <option value="Other">📦 Other</option>
+                    </select>
+
+                </div>
+
+            </div>
+
+
+            <!-- Expenses will appear here -->
+            <div id="expenseList" class="expense-list">
+
+                <div class="empty-state">
+
+                    <div class="empty-icon">🧾</div>
+
+                    <h3>No expenses yet</h3>
+
+                    <p>
+                        Add your first expense using the form above.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2026 Student Expense Tracker</p>
+        <p>Manage your money • Save more • Spend wisely</p>
+    </footer>
+
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+
+</body>
+</html>
